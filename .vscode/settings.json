@@ -1,10 +1,10 @@
 {
     // Disable the default formatter
-    "prettier.enable": false,
+    "prettier.enable": true,
     "editor.formatOnSave": true,
     "editor.codeActionsOnSave": {
-        "source.fixAll.eslint": "explicit",
-        "source.organizeImports": "never"
+        "source.fixAll.eslint": "always",
+        "source.organizeImports": "always"
     },
     "eslint.rules.customizations": [
         {
@@ -77,4 +77,7 @@
     "editor.insertSpaces": true,
     "editor.tabSize": 4,
     "editor.detectIndentation": false,
+    "[vue]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    }
 }
