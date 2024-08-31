@@ -1,58 +1,80 @@
 {
-  // Disable the default formatter
-  "prettier.enable": false,
-  "editor.formatOnSave": true,
-
-  "editor.codeActionsOnSave": {
-    "source.fixAll.eslint": "explicit",
-    "source.organizeImports": "never"
-  },
-
-  "eslint.rules.customizations": [
-    { "rule": "@stylistic/*", "severity": "off" },
-    { "rule": "style*", "severity": "off" },
-    { "rule": "*-indent", "severity": "off" },
-    { "rule": "*-spacing", "severity": "off" },
-    { "rule": "*-spaces", "severity": "off" },
-    { "rule": "*-order", "severity": "off" },
-    { "rule": "*-dangle", "severity": "off" },
-    { "rule": "*-newline", "severity": "off" },
-    { "rule": "*quotes", "severity": "off" },
-    { "rule": "*semi", "severity": "off" }
-  ],
-
-  "eslint.validate": [
-    "javascript",
-    "javascriptreact",
-    "typescript",
-    "typescriptreact",
-    "vue",
-    "html",
-    "markdown",
-    "json",
-    "jsonc",
-    "yaml"
-  ],
-
-  "unocss.colorPreview": true,
-
-  "editor.quickSuggestions": {
-    "strings": true
-  },
-
-  "tailwindCSS.includeLanguages": {
-    "plaintext": "html",
-    "vue": "html",
-    "typescript": "javascript",
-    "typescriptreact": "javascript",
-    "javascriptreact": "javascript",
-    "typescript.tsx": "javascript",
-    "typescript.vue": "html"
-  },
-
-  "files.autoSave": "off",
-
-  "editor.insertSpaces": true,
-  "editor.tabSize": 4,
-  "editor.detectIndentation": false,
+    // Disable the default formatter
+    "prettier.enable": false,
+    "editor.formatOnSave": true,
+    "editor.codeActionsOnSave": {
+        "source.fixAll.eslint": "explicit",
+        "source.organizeImports": "never"
+    },
+    "eslint.rules.customizations": [
+        {
+            "rule": "@stylistic/*",
+            "severity": "off"
+        },
+        {
+            "rule": "style*",
+            "severity": "off"
+        },
+        {
+            "rule": "*-indent",
+            "severity": "off"
+        },
+        {
+            "rule": "*-spacing",
+            "severity": "off"
+        },
+        {
+            "rule": "*-spaces",
+            "severity": "off"
+        },
+        {
+            "rule": "*-order",
+            "severity": "off"
+        },
+        {
+            "rule": "*-dangle",
+            "severity": "off"
+        },
+        {
+            "rule": "*-newline",
+            "severity": "off"
+        },
+        {
+            "rule": "*quotes",
+            "severity": "off"
+        },
+        {
+            "rule": "*semi",
+            "severity": "off"
+        }
+    ],
+    "eslint.validate": [
+        "javascript",
+        "javascriptreact",
+        "typescript",
+        "typescriptreact",
+        "vue",
+        "html",
+        "markdown",
+        "json",
+        "jsonc",
+        "yaml"
+    ],
+    "unocss.colorPreview": true,
+    "editor.quickSuggestions": {
+        "strings": true
+    },
+    "tailwindCSS.includeLanguages": {
+        "plaintext": "html",
+        "vue": "html",
+        "typescript": "javascript",
+        "typescriptreact": "javascript",
+        "javascriptreact": "javascript",
+        "typescript.tsx": "javascript",
+        "typescript.vue": "html"
+    },
+    "files.autoSave": "off",
+    "editor.insertSpaces": true,
+    "editor.tabSize": 4,
+    "editor.detectIndentation": false,
 }
