@@ -1,0 +1,14 @@
+{
+  "recommendations": [
+    "antfu.iconify",
+    "antfu.unocss",
+    "antfu.goto-alias",
+    "csstools.postcss",
+    "dbaeumer.vscode-eslint",
+    "vue.volar",
+    "editorconfig.editorconfig",
+    "eamodio.gitlens",
+    "nuxtr.nuxtr-vscode",
+    "bradlc.vscode-tailwindcss",
+  ]
+}
