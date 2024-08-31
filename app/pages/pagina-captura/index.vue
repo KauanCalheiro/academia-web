@@ -7,7 +7,7 @@ definePageMeta({
 <template>
     <main>
         <section
-            class="bg-[url('https://www.academiazenith.com.br/images/7078118458ec29316db719d9225ad107.jpg')] bg-center bg-no-repeat bg-cover h-[80vh] flex flex-col justify-between pb-[35vh] sm:pb-[30vh] lg:pb-[25vh]"
+            class="bg-[url('https://www.academiazenith.com.br/images/7078118458ec29316db719d9225ad107.jpg')] bg-center bg-no-repeat bg-cover h-[100dvh] flex flex-col justify-between pb-[35dvh] sm:pb-[30dvh] lg:pb-[25dvh]"
         >
             <div class="flex items-center justify-start">
                 <img
