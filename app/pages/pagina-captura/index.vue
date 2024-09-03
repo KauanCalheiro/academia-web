@@ -23,7 +23,7 @@ const scrollToSectionPlans = () => {
 <template>
     <main>
         <section
-            class="bg-[url('https://www.academiazenith.com.br/images/7078118458ec29316db719d9225ad107.jpg')] bg-center bg-no-repeat bg-cover h-[100vh] flex flex-col justify-between"
+            class="bg-[url('https://www.academiazenith.com.br/images/7078118458ec29316db719d9225ad107.jpg')] bg-center bg-no-repeat bg-cover h-[90vh] flex flex-col justify-between"
         >
             <div class="flex flex-col justify-start h-[90vh] gap-[5rem]">
                 <div class="flex items-center justify-start">
