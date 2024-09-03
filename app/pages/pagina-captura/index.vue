@@ -23,9 +23,9 @@ const scrollToSectionPlans = () => {
 <template>
     <main>
         <section
-            class="bg-[url('https://www.academiazenith.com.br/images/7078118458ec29316db719d9225ad107.jpg')] bg-center bg-no-repeat bg-cover h-[100dvh] flex flex-col justify-between"
+            class="bg-[url('https://www.academiazenith.com.br/images/7078118458ec29316db719d9225ad107.jpg')] bg-center bg-no-repeat bg-cover h-[100vh] flex flex-col justify-between"
         >
-            <div class="flex flex-col justify-start h-[90dvh] gap-[8rem]">
+            <div class="flex flex-col justify-start h-[90vh] gap-[5rem]">
                 <div class="flex items-center justify-start">
                     <img
                         class="w-[50dvw] sm:w-[45dvw] md:w-[40dvw] lg:w-[35dvw] xl:w-[30dvw] 2xl:w-[25dvw] m-4 p-2 filter drop-shadow-[3px_2px_1px_#000]"
