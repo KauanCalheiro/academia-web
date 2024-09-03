@@ -1,6 +1,6 @@
 <template>
     <section
-        :class="`bg-[url('${imgPath}')] bg-center bg-cover bg-no-repeat h-[50dvh] w-[80dvw] md:w-[25dvw]
+        :class="`bg-[url('${imgPath}')] bg-center bg-cover bg-no-repeat h-[50vh] w-[80dvw] md:w-[25dvw]
         flex flex-col justify-between`"
     >
         <slot> </slot>
