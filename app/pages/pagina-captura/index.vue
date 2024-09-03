@@ -23,7 +23,7 @@ const scrollToSectionPlans = () => {
 <template>
     <main>
         <section
-            class="bg-[url('https://www.academiazenith.com.br/images/7078118458ec29316db719d9225ad107.jpg')] bg-center bg-no-repeat bg-cover h-[95vh] flex flex-col justify-between"
+            class="bg-[url('https://www.academiazenith.com.br/images/7078118458ec29316db719d9225ad107.jpg')] bg-center bg-no-repeat bg-cover h-[100vh] flex flex-col justify-between"
         >
             <div class="flex flex-col justify-start h-[90vh] gap-[5rem]">
                 <div class="flex items-center justify-start">
@@ -40,14 +40,14 @@ const scrollToSectionPlans = () => {
                         Reach Your <span class="text-lime-500"> Best</span>
                     </h1>
                 </div>
-            </div>
-            <div class="flex justify-center">
-                <UButton
-                    class="animate-bounce m-4 filter rounded-full text-black"
-                    icon="heroicons:chevron-down-16-solid"
-                    color="lime"
-                    @click="scrollToSectionPlans"
-                />
+                <div class="flex justify-center">
+                    <UButton
+                        class="animate-bounce m-4 filter rounded-full text-black"
+                        icon="heroicons:chevron-down-16-solid"
+                        color="lime"
+                        @click="scrollToSectionPlans"
+                    />
+                </div>
             </div>
         </section>
         <!-- cria a sessao de planos -->
