@@ -28,14 +28,14 @@ const scrollToSectionPlans = () => {
             <div class="flex flex-col justify-start h-[90vh] gap-[5rem]">
                 <div class="flex items-center justify-start">
                     <img
-                        class="w-[50dvw] sm:w-[45dvw] md:w-[40dvw] lg:w-[35dvw] xl:w-[30dvw] 2xl:w-[25dvw] m-4 p-2 filter drop-shadow-[3px_2px_1px_#000]"
+                        class="w-[50vw] sm:w-[45vw] md:w-[40vw] lg:w-[35vw] xl:w-[30vw] 2xl:w-[25vw] m-4 p-2 filter drop-shadow-[3px_2px_1px_#000]"
                         src="~~/public/logo.png"
                         alt="Logo"
                     />
                 </div>
                 <div>
                     <h1
-                        class="main-font font-bold italic text-white text-center drop-shadow-[3px_3px_2px_#000] uppercase text-[20dvw] m-0 p-8 md:text-[10dvw] xl:text-[6dvw] 2xl:text-[5dvw]"
+                        class="main-font font-bold italic text-white text-center drop-shadow-[3px_3px_2px_#000] uppercase text-[20vw] m-0 p-8 md:text-[10vw] xl:text-[6vw] 2xl:text-[5vw]"
                     >
                         Reach Your <span class="text-lime-500"> Best</span>
                     </h1>
