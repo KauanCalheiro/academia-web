@@ -23,31 +23,29 @@ const scrollToSectionPlans = () => {
 <template>
     <main>
         <section
-            class="bg-[url('https://www.academiazenith.com.br/images/7078118458ec29316db719d9225ad107.jpg')] bg-center bg-no-repeat bg-cover h-[100vh] flex flex-col justify-between"
+            class="bg-[url('https://www.academiazenith.com.br/images/7078118458ec29316db719d9225ad107.jpg')] bg-center bg-no-repeat bg-cover h-[90vh] md:h-[100vh] flex flex-col justify-between"
         >
-            <div class="flex flex-col justify-start h-[90vh] gap-[5rem]">
-                <div class="flex items-center justify-start">
-                    <img
-                        class="w-[50vw] sm:w-[45vw] md:w-[40vw] lg:w-[35vw] xl:w-[30vw] 2xl:w-[25vw] m-4 p-2 filter drop-shadow-[3px_2px_1px_#000]"
-                        src="~~/public/logo.png"
-                        alt="Logo"
-                    />
-                </div>
-                <div>
-                    <h1
-                        class="main-font font-bold italic text-white text-center drop-shadow-[3px_3px_2px_#000] uppercase text-[20vw] m-0 p-8 md:text-[10vw] xl:text-[6vw] 2xl:text-[5vw]"
-                    >
-                        Reach Your <span class="text-lime-500"> Best</span>
-                    </h1>
-                </div>
-                <div class="flex justify-center">
-                    <UButton
-                        class="animate-bounce m-4 filter rounded-full text-black"
-                        icon="heroicons:chevron-down-16-solid"
-                        color="lime"
-                        @click="scrollToSectionPlans"
-                    />
-                </div>
+            <div class="flex items-center justify-start">
+                <img
+                    class="w-[50vw] sm:w-[45vw] md:w-[40vw] lg:w-[35vw] xl:w-[30vw] 2xl:w-[25vw] m-4 p-2 filter drop-shadow-[3px_2px_1px_#000]"
+                    src="~~/public/logo.png"
+                    alt="Logo"
+                />
+            </div>
+            <div>
+                <h1
+                    class="main-font font-bold italic text-white text-center drop-shadow-[3px_3px_2px_#000] uppercase text-[20vw] m-0 p-8 md:text-[10vw] xl:text-[6vw] 2xl:text-[5vw]"
+                >
+                    Reach Your <span class="text-lime-500"> Best</span>
+                </h1>
+            </div>
+            <div class="flex justify-center">
+                <UButton
+                    class="animate-bounce m-4 filter rounded-full text-black"
+                    icon="heroicons:chevron-down-16-solid"
+                    color="lime"
+                    @click="scrollToSectionPlans"
+                />
             </div>
         </section>
         <!-- cria a sessao de planos -->
