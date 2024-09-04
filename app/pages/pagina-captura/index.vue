@@ -51,7 +51,7 @@ const scrollToSectionPlans = () => {
         <!-- cria a sessao de planos -->
         <section ref="sectionPlans" class="bg-gray-900">
             <h1
-                class="main-font font-bold italic text-lime-400 text-center uppercase drop-shadow-[3px_3px_2px_#000] text-[10vw] m-0 p-8 md:text-[5vw]"
+                class="main-font font-bold italic text-lime-400 text-center uppercase drop-shadow-[3px_3px_2px_#000] text-[10vw] m-0 p-8 md:text-[3vw]"
             >
                 Planos
             </h1>
@@ -59,7 +59,7 @@ const scrollToSectionPlans = () => {
                 <template v-for="plano in planos">
                     <CatchPageCard
                         :backgroundImageRef="plano.imagePath"
-                        class="m-4 p-2 filter drop-shadow-[3px_2px_1px_#000]"
+                        class="m-4 p-2 py-6 filter drop-shadow-[3px_2px_1px_#000]"
                     >
                         <div class="flex flex-col justify-center items-center">
                             <h2
@@ -79,9 +79,14 @@ const scrollToSectionPlans = () => {
                                 </span>
 
                                 <br />
-                                <span v-if="plano.obs" class="text-[2vw]"
+                                <span
+                                    v-if="plano.obs"
+                                    class="text-[2vw] md:text-[1vw]"
                                     >Obs: {{ plano.obs }}</span
                                 >
+                                <span v-else>
+                                    <br />
+                                </span>
                             </h3>
 
                             <UButton
@@ -90,7 +95,11 @@ const scrollToSectionPlans = () => {
                                 label="Inscrever-se"
                                 to="https://www.academiazenith.com.br/zntSystem/index.php?class=VendaCheckoutForm&plano=13"
                                 target="_blank"
-                            />
+                            >
+                                <span class="main-font font-bold">
+                                    Inscrever-se
+                                </span>
+                            </UButton>
                         </div>
                     </CatchPageCard>
                 </template>
