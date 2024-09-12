@@ -28,7 +28,7 @@ const scrollToSectionPlans = () => {
             <div class="flex items-center justify-start">
                 <img
                     class="w-[50vw] sm:w-[45vw] md:w-[40vw] lg:w-[35vw] xl:w-[30vw] 2xl:w-[25vw] m-4 p-2 filter drop-shadow-[3px_2px_1px_#000]"
-                    src="~~/public/logo.png"
+                    src="public/logo.png"
                     alt="Logo"
                 />
             </div>
@@ -66,6 +66,48 @@ const scrollToSectionPlans = () => {
 
         <br />
 
+        <section ref="sectionVisitUs">
+            <h1
+                class="main-font font-bold italic text-lime-400 text-center uppercase drop-shadow-[3px_3px_2px_#000] m-0 pt-8 pb-6 text-[10vw] md:text-[3vw]"
+            >
+                Venha nos visitar &nbsp;
+            </h1>
+            <div class="flex flex-row justify-center items-center gap-8">
+                <div class="flex flex-col gap-4">
+                    <iframe
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d4150.718698850995!2d-52.193958699999996!3d-29.611879199999997!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x951c91006903fe6f%3A0x884064f59dcda0ce!2sAcademia%20Zenith!5e1!3m2!1spt-BR!2sbr!4v1726101305948!5m2!1spt-BR!2sbr"
+                        width="300"
+                        height="300"
+                        style="border: 0"
+                        loading="lazy"
+                        referrerpolicy="no-referrer-when-downgrade"
+                    ></iframe>
+                    <br />
+                </div>
+            </div>
+        </section>
+
+        <section ref="sectionInstagram">
+            <h1
+                class="main-font font-bold italic text-lime-400 text-center uppercase drop-shadow-[3px_3px_2px_#000] m-0 pt-8 pb-6 text-[10vw] md:text-[3vw]"
+            >
+                Instagram
+            </h1>
+            <div class="flex flex-row justify-center items-center gap-8">
+                <div class="flex flex-col gap-4">
+                    <iframe
+                        src="https://www.instagram.com/zenith.academia/embed"
+                        width="300"
+                        height="400"
+                        style="border: 0"
+                        loading="lazy"
+                        referrerpolicy="no-referrer-when-downgrade"
+                    ></iframe>
+                    <br />
+                </div>
+            </div>
+        </section>
+
         <div class="w-[80%] m-auto">
             <UDivider
                 :ui="{
@@ -81,38 +123,9 @@ const scrollToSectionPlans = () => {
                 <div class="w-full flex justify-center">
                     <img
                         class="w-[150px] filter drop-shadow-[3px_2px_1px_#000]"
-                        src="~~/public/logo.png"
+                        src="public/logo.png"
                         alt="Logo"
                     />
-                </div>
-
-                <div class="flex flex-col gap-6">
-                    <a
-                        href="https://maps.app.goo.gl/GoMbmYseb97eBnbx5"
-                        target="_blank"
-                        class="flex flex-row"
-                    >
-                        <UIcon name="i-logos:google-maps" class="w-8 h-8" />
-                        <h1
-                            class="main-font font-bold italic text-white text-center px-2 xl:text-[1.2vw]"
-                        >
-                            Venha nos visitar
-                        </h1>
-                        <br />
-                    </a>
-                    <a
-                        href="https://www.instagram.com/zenith.academia/"
-                        target="_blank"
-                        class="flex flex-row"
-                    >
-                        <UIcon name="i-skill-icons:instagram" class="w-8 h-8" />
-                        <h1
-                            class="main-font font-bold italic text-white text-center px-2 xl:text-[1.2vw]"
-                        >
-                            Siga-nos no Instagram
-                        </h1>
-                    </a>
-                    <br />
                 </div>
             </div>
         </footer>
