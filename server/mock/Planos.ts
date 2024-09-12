@@ -11,14 +11,14 @@ const mockedDataPlanos: Plano[] = [
     {
         id: 14,
         titulo: "Plano Individual",
-        descricao: "<li>1 pessoas</li><li>12x de R$ 119,90</li><br>",
+        descricao: "<li>1 pessoa</li><li>12x de R$ 119,90</li><br>",
         valor_mensal: 139.90,
         periodo: "Mês"
     },
     {
         id: 9,
         titulo: "Diaria",
-        descricao: "<li>1 pessoas</li><li>12x de R$ 119,90</li><br>",
+        descricao: "<li>1 pessoa</li><li>12x de R$ 119,90</li><br>",
         valor_mensal: 30.0,
         periodo: "Dia"
     }
