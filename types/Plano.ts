@@ -1,8 +1,7 @@
 export default interface Plano {
     id: number;
+    titulo: string;
     descricao: string;
-    valor: number;
-    parcelas: number;
-    obs: string;
-    imagePath: string;
+    valor_mensal: number;
+    periodo: string;
 }

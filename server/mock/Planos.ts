@@ -2,28 +2,25 @@ import Plano from "~~/types/Plano";
 
 const mockedDataPlanos: Plano[] = [
     {
-        id: 1,
-        descricao: "Plano em Dupla",
-        valor: 119.90,
-        parcelas: 12,
-        obs: "por pessoa",
-        imagePath: "https://www.academiazenith.com.br/images/37ecf4ee6508e8e1cab7b8aff99e0951.jpg"
+        id: 13,
+        titulo: "Plano em Dupla",
+        descricao: "<li>2 pessoas</li><li>12x de R$ 119,90</li><li>Valor por pessoa</li>",
+        valor_mensal: 119.90,
+        periodo: "Mês"
     },
     {
-        id: 2,
-        descricao: "Plano Individual",
-        valor: 139.90,
-        parcelas: 12,
-        obs: "",
-        imagePath: "https://www.academiazenith.com.br/images/37ecf4ee6508e8e1cab7b8aff99e0951.jpg"
+        id: 14,
+        titulo: "Plano Individual",
+        descricao: "<li>1 pessoas</li><li>12x de R$ 119,90</li><br>",
+        valor_mensal: 139.90,
+        periodo: "Mês"
     },
     {
-        id: 3,
-        descricao: "Diaria",
-        valor: 30.90,
-        parcelas: 1,
-        obs: "",
-        imagePath: "https://www.academiazenith.com.br/images/37ecf4ee6508e8e1cab7b8aff99e0951.jpg"
+        id: 9,
+        titulo: "Diaria",
+        descricao: "<li>1 pessoas</li><li>12x de R$ 119,90</li><br>",
+        valor_mensal: 30.0,
+        periodo: "Dia"
     }
 ];
 

@@ -87,8 +87,8 @@ const scrollToSectionPlans = () => {
                 </div>
 
                 <div class="flex flex-col gap-6">
-                    <UlLink
-                        to="https://maps.app.goo.gl/GoMbmYseb97eBnbx5"
+                    <a
+                        href="https://maps.app.goo.gl/GoMbmYseb97eBnbx5"
                         target="_blank"
                         class="flex flex-row"
                     >
@@ -99,9 +99,9 @@ const scrollToSectionPlans = () => {
                             Venha nos visitar
                         </h1>
                         <br />
-                    </UlLink>
-                    <UlLink
-                        to="https://www.instagram.com/zenith.academia/"
+                    </a>
+                    <a
+                        href="https://www.instagram.com/zenith.academia/"
                         target="_blank"
                         class="flex flex-row"
                     >
@@ -111,48 +111,9 @@ const scrollToSectionPlans = () => {
                         >
                             Siga-nos no Instagram
                         </h1>
-                    </UlLink>
+                    </a>
                     <br />
                 </div>
-
-                <!--
-                    Adicionar logo
-
-                    redes
-
-                    endereço
-                -->
-                <!-- <div class="flex flex-row gap-8">
-                    <div class="left">
-                        <ULink
-                            to="https://maps.app.goo.gl/GoMbmYseb97eBnbx5"
-                            target="_blank"
-                        >
-                            <h1
-                                class="main-font font-bold italic text-black text-center px-16 xl:text-[1.2vw]"
-                            >
-                                RUA CONDE D'EU 1182, VENÂNCIO AIRES - RS CEP:
-                                95800-000
-                            </h1>
-                        </ULink>
-                    </div>
-
-                    <div class="center"></div>
-
-                    <div class="right"></div>
-
-                    <ULink
-                        to="https://www.instagram.com/zenith.academia/"
-                        target="_blank"
-                    >
-                        <UIcon name="i-skill-icons:instagram" class="w-5 h-5" />
-                    </ULink>
-                </div>
-
-                <h2 class="main-font font-normal text-black text-center px-16">
-                    ZENITH ACADEMIA LTDA - CNPJ 54.330.309/0001-79
-                </h2>
-                Ao tentar selecionar o endereço, redireciona para o maps -->
             </div>
         </footer>
     </div>
