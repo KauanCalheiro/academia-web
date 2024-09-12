@@ -21,7 +21,7 @@ const scrollToSectionPlans = () => {
 </script>
 
 <template>
-    <main>
+    <div class="bg-gray-900">
         <section
             class="bg-[url('https://www.academiazenith.com.br/images/7078118458ec29316db719d9225ad107.jpg')] bg-center bg-no-repeat bg-cover h-full md:h-screen flex flex-col justify-between gap-11 md:gap-0"
         >
@@ -34,7 +34,7 @@ const scrollToSectionPlans = () => {
             </div>
             <div>
                 <h1
-                    class="main-font font-bold italic text-white text-center drop-shadow-[3px_3px_2px_#000] uppercase text-[20vw] m-0 p-8 md:text-[10vw] xl:text-[6vw] 2xl:text-[5vw]"
+                    class="main-font font-bold italic text-white text-center drop-shadow-[3px_3px_2px_#000] uppercase text-[20vw] m-0 p-8 xl:pb-24 md:text-[10vw] xl:text-[7vw]"
                 >
                     Reach Your <span class="text-lime-500"> Best</span>
                 </h1>
@@ -49,63 +49,113 @@ const scrollToSectionPlans = () => {
             </div>
         </section>
         <!-- cria a sessao de planos -->
-        <section ref="sectionPlans" class="bg-gray-900">
+        <section ref="sectionPlans">
             <h1
                 class="main-font font-bold italic text-lime-400 text-center uppercase drop-shadow-[3px_3px_2px_#000] text-[10vw] m-0 p-8 md:text-[3vw]"
             >
                 Planos
             </h1>
-            <div class="flex flex-row flex-wrap justify-center items-center">
+            <div
+                class="flex flex-row flex-wrap justify-center items-center gap-8"
+            >
                 <template v-for="plano in planos">
-                    <CatchPageCard
-                        :backgroundImageRef="plano.imagePath"
-                        class="m-4 p-2 py-6 filter drop-shadow-[3px_2px_1px_#000]"
-                    >
-                        <div class="flex flex-col justify-center items-center">
-                            <h2
-                                class="main-font font-bold italic text-white text-center drop-shadow-[3px_3px_2px_#000] uppercase text-[10vw] m-0 px-4 md:text-[2vw]"
-                            >
-                                {{ plano.descricao }}
-                            </h2>
-                        </div>
-
-                        <div class="flex flex-col justify-center items-center">
-                            <h3
-                                class="main-font font-bold italic text-white text-center drop-shadow-[3px_3px_2px_#000] text-[5vw] m-0 p-8 md:text-[2vw]"
-                            >
-                                {{ plano.parcelas }}x de R$
-                                <span class="text-lime-400">
-                                    {{ plano.valor }}
-                                </span>
-
-                                <br />
-                                <span
-                                    v-if="plano.obs"
-                                    class="text-[2vw] md:text-[1vw]"
-                                    >Obs: {{ plano.obs }}</span
-                                >
-                                <span v-else>
-                                    <br />
-                                </span>
-                            </h3>
-
-                            <UButton
-                                class="m-4 filter rounded-lg text-black"
-                                color="lime"
-                                label="Inscrever-se"
-                                to="https://www.academiazenith.com.br/zntSystem/index.php?class=VendaCheckoutForm&plano=13"
-                                target="_blank"
-                            >
-                                <span class="main-font font-bold">
-                                    Inscrever-se
-                                </span>
-                            </UButton>
-                        </div>
-                    </CatchPageCard>
+                    <CardPlanos :plano="plano" />
                 </template>
             </div>
         </section>
-    </main>
+
+        <br />
+
+        <div class="w-[80%] m-auto">
+            <UDivider
+                :ui="{
+                    border: {
+                        base: 'flex border-gray-800',
+                    },
+                }"
+            />
+        </div>
+
+        <footer class="w-[75%] m-auto">
+            <div class="endereco flex flex-col gap-8 py-4">
+                <div class="w-full flex justify-center">
+                    <img
+                        class="w-[150px] filter drop-shadow-[3px_2px_1px_#000]"
+                        src="~~/public/logo.png"
+                        alt="Logo"
+                    />
+                </div>
+
+                <div class="flex flex-col gap-6">
+                    <UlLink
+                        to="https://maps.app.goo.gl/GoMbmYseb97eBnbx5"
+                        target="_blank"
+                        class="flex flex-row"
+                    >
+                        <UIcon name="i-logos:google-maps" class="w-8 h-8" />
+                        <h1
+                            class="main-font font-bold italic text-white text-center px-2 xl:text-[1.2vw]"
+                        >
+                            Venha nos visitar
+                        </h1>
+                        <br />
+                    </UlLink>
+                    <UlLink
+                        to="https://www.instagram.com/zenith.academia/"
+                        target="_blank"
+                        class="flex flex-row"
+                    >
+                        <UIcon name="i-skill-icons:instagram" class="w-8 h-8" />
+                        <h1
+                            class="main-font font-bold italic text-white text-center px-2 xl:text-[1.2vw]"
+                        >
+                            Siga-nos no Instagram
+                        </h1>
+                    </UlLink>
+                    <br />
+                </div>
+
+                <!--
+                    Adicionar logo
+
+                    redes
+
+                    endereço
+                -->
+                <!-- <div class="flex flex-row gap-8">
+                    <div class="left">
+                        <ULink
+                            to="https://maps.app.goo.gl/GoMbmYseb97eBnbx5"
+                            target="_blank"
+                        >
+                            <h1
+                                class="main-font font-bold italic text-black text-center px-16 xl:text-[1.2vw]"
+                            >
+                                RUA CONDE D'EU 1182, VENÂNCIO AIRES - RS CEP:
+                                95800-000
+                            </h1>
+                        </ULink>
+                    </div>
+
+                    <div class="center"></div>
+
+                    <div class="right"></div>
+
+                    <ULink
+                        to="https://www.instagram.com/zenith.academia/"
+                        target="_blank"
+                    >
+                        <UIcon name="i-skill-icons:instagram" class="w-5 h-5" />
+                    </ULink>
+                </div>
+
+                <h2 class="main-font font-normal text-black text-center px-16">
+                    ZENITH ACADEMIA LTDA - CNPJ 54.330.309/0001-79
+                </h2>
+                Ao tentar selecionar o endereço, redireciona para o maps -->
+            </div>
+        </footer>
+    </div>
 </template>
 
 <style scoped>
