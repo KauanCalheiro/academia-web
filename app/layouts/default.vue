@@ -1,6 +1,5 @@
 <template>
-    <!-- <Header /> -->
-    <UContainer class="w-full">
+    <UContainer class="w-full h-screen">
         <slot></slot>
     </UContainer>
 </template>
