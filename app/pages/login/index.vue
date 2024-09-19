@@ -42,20 +42,16 @@ const state = reactive<{
     password: undefined,
 });
 
-const retorno = ref<string>("");
-
 async function onSubmit(event: FormSubmitEvent<Schema>) {
     useLazyFetch(LOGIN, {
         method: "POST",
         body: JSON.stringify(event.data),
         onResponse: (response) => {
-            console.log(response.response._data);
             if (response.response._data.success) {
                 toast.success("Login efetuado com sucesso");
             }
         },
         onResponseError: (error) => {
-            retorno.value = error.response._data.message;
             toast.error(error.response._data.message);
         },
     });
@@ -74,8 +70,6 @@ async function onSubmit(event: FormSubmitEvent<Schema>) {
                 <template #header>
                     <h1 class="text-2xl font-bold">Login</h1>
                 </template>
-
-                {{ retorno }}
 
                 <div class="flex flex-col gap-4">
                     <UFormGroup label="Código" name="id" :required="true">
