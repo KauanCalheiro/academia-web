@@ -2,7 +2,6 @@
 import type { FormSubmitEvent } from "#ui/types";
 import { z } from "zod";
 import ToastService from "~/services/ToastService";
-import { LOGIN } from "~~/constants/api";
 
 useColorMode().preference = "dark";
 
@@ -43,7 +42,7 @@ const state = reactive<{
 });
 
 async function onSubmit(event: FormSubmitEvent<Schema>) {
-    useLazyFetch(LOGIN, {
+    useLazyFetch("/api/login", {
         method: "POST",
         body: JSON.stringify(event.data),
         onResponse: (response) => {
@@ -52,6 +51,7 @@ async function onSubmit(event: FormSubmitEvent<Schema>) {
             }
         },
         onResponseError: (error) => {
+            console.log(error.response._data);
             toast.error(error.response._data.message);
         },
     });
