@@ -4,7 +4,8 @@ import type TableAction from "~~/types/ui/TableAction";
 import type TableColumn from "~~/types/ui/TableColumn";
 import type TableSort from "~~/types/ui/TableSort";
 
-const { columns, rows, actions, status, error } = defineProps<{
+const { title, columns, rows, actions, status, error } = defineProps<{
+    title?: string;
     columns: TableColumn<T>[];
     rows: (any | T)[];
     actions?: TableAction<T>[];
@@ -28,10 +29,16 @@ function onUpdateSort(sort: TableSort): any {
 </script>
 
 <template>
-    <UTable
-        @update:sort="onUpdateSort"
-        :columns="columns"
-        :rows="rows"
-        :loading="loading"
-    ></UTable>
+    <div
+        class="flex flex-col w-[75%] m-auto gap-4 py-4 px-8 my-8 bg-gray-900 rounded-lg shadow-lg"
+    >
+        <BaseTitle v-if="title" :title="title" />
+        <UTable
+            @update:sort="onUpdateSort"
+            :columns="columns"
+            :rows="rows"
+            :loading="loading"
+            :ui="{}"
+        ></UTable>
+    </div>
 </template>
