@@ -41,14 +41,12 @@ function onUpdateSort(sort: TableSort) {
 </script>
 
 <template>
-    <h1>Cadastros Básicos</h1>
-
     <BaseTable
+        title="Módulos"
         :columns="columns"
         :rows="data?.payload ?? []"
         :status="status"
         :error="error?.message"
         @update:sort="onUpdateSort"
     ></BaseTable>
-    {{ data }}
 </template>
