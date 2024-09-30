@@ -2,4 +2,5 @@
 
 <template>
     <ModuleTable></ModuleTable>
+    <ModuleForm></ModuleForm>
 </template>
