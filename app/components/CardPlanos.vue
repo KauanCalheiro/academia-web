@@ -1,31 +1,4 @@
 <template>
-    <!-- <div
-        class="flex flex-col gap-8 border-gray-700 border-2 rounded-lg py-10 px-5 w-[65%] xl:w-[20%] text-white h-max"
-    >
-        <header>
-            <h2 class="text-xl font-bold text-center">{{ plano.titulo }}</h2>
-        </header>
-        <main class="flex flex-col gap-4">
-            <div class="flex flex-row justify-center text-center items-end">
-                <h1 class="text-4xl font-bold text-center">
-                    R${{ plano.valor_mensal }}
-                </h1>
-                <p>&nbsp;/ {{ plano.periodo }}</p>
-            </div>
-            <div class="px-3" v-html="plano.descricao"></div>
-        </main>
-        <footer>
-            <UButton
-                class="w-full flex justify-center text-black"
-                color="lime"
-                :to="`https://www.academiazenith.com.br/zntSystem/index.php?class=VendaCheckoutForm&plano=${plano.id}`"
-                target="_blank"
-            >
-                Inscreva-se
-            </UButton>
-        </footer>
-    </div> -->
-
     <UCard
         :ui="{
             base: 'text-white',
