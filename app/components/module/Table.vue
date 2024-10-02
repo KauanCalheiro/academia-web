@@ -4,6 +4,12 @@ import type Modulo from "~~/types/Modulo";
 import type TableColumn from "~~/types/ui/TableColumn";
 import type TableSort from "~~/types/ui/TableSort";
 
+const emit = defineEmits<{
+    add: [];
+    edit: [row: Modulo];
+    delete: [row: Modulo];
+}>();
+
 const columns: TableColumn[] = [
     { label: "ID", key: "id", sortable: true },
     { label: "Módulo", key: "descricao", sortable: true },
@@ -38,15 +44,31 @@ const { data, status, error, refresh, clear, execute } = useLazyFetch<
 function onUpdateSort(sort: TableSort) {
     sortRequest.value = sort;
 }
+
+function onEdit(row: Modulo) {
+    emit("edit", row);
+}
+
+function onDelete(row: Modulo) {
+    emit("delete", row);
+}
+
+defineExpose({
+    refresh,
+});
 </script>
 
 <template>
     <BaseTable
         title="Módulos"
         :columns="columns"
-        :rows="data?.payload ?? []"
+        :rows="(data?.payload as Modulo[]) ?? []"
         :status="status"
         :error="error?.message"
+        :use-actions="true"
         @update:sort="onUpdateSort"
+        @edit="onEdit"
+        @delete="onDelete"
+        @add="$emit('add')"
     ></BaseTable>
 </template>
