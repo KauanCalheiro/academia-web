@@ -22,7 +22,7 @@ export default class ToastService {
 
     private getToastId() {
         this.countToast++;
-        return `${this.id}-${this.countToast}`;
+        return `${this.id}-${Date.now()}-${this.countToast}`; // Combines timestamp and count
     }
 
     public success(
