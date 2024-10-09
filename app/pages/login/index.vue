@@ -1,11 +1,12 @@
 <script setup lang="ts">
 import type { FormSubmitEvent } from "#ui/types";
 import { z } from "zod";
-import type FetchContext from "~~/types/api/FetchContext";
-import type ZenithApiResponse from "~~/types/api/ZenithApiResponse";
+import ToastService from "~/services/ToastService";
 import type Usuario from "~~/types/Usuario";
 
 useColorMode().preference = "dark";
+
+const useNotification = new ToastService();
 
 const schema = z.object({
     id: z
@@ -42,20 +43,19 @@ const state = reactive<{
 });
 
 async function onSubmit(event: FormSubmitEvent<Schema>) {
-    useLazyFetch("/api/login", {
+    const response = await $fetch("/api/login", {
         method: "POST",
         body: JSON.stringify(event.data),
-        onResponse: (response: FetchContext<ZenithApiResponse<Usuario>>) => {
-            if (response.response._data.success) {
-                useNotification.success("Login efetuado com sucesso");
-                useAuth().login(response.response._data.payload as Usuario);
-                useRouter().push("/treinos");
-            }
-        },
         onResponseError: (error) => {
             useNotification.error(error.response._data.message);
         },
     });
+
+    if (response.success) {
+        useNotification.success("Login efetuado com sucesso");
+        useAuth().login(response.payload as Usuario);
+        useRouter().push("/treinos");
+    }
 }
 </script>
 
