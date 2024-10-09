@@ -12,9 +12,24 @@ const isOpen = ref(false);
     />
 
     <USlideover v-model="isOpen">
-        <UCard>
+        <UCard
+            class="flex flex-col h-full justify-between"
+            :ui="{
+                header: {
+                    base: 'h-fit',
+                },
+                body: {
+                    base: 'h-full',
+                },
+                footer: {
+                    base: 'h-fit',
+                },
+            }"
+        >
             <template #header>
-                <div class="flex flex-row justify-end">
+                <div class="h-fit flex flex-row justify-between">
+                    <BaseButtonLogout />
+
                     <UButton
                         icon="material-symbols:close-rounded"
                         size="sm"
@@ -22,6 +37,16 @@ const isOpen = ref(false);
                         variant="ghost"
                         @click="isOpen = false"
                     />
+                </div>
+            </template>
+
+            <div class="flex flex-col gap-4 h-full">
+                <ULink href="/treinos">Treinos</ULink>
+            </div>
+
+            <template #footer class="h-fit">
+                <div class="h-fit flex justify-center">
+                    <BaseZenithLogo />
                 </div>
             </template>
         </UCard>
