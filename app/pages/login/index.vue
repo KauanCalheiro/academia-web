@@ -4,6 +4,10 @@ import { z } from "zod";
 import ToastService from "~/services/ToastService";
 import type Usuario from "~~/types/Usuario";
 
+definePageMeta({
+    layout: "login",
+});
+
 useColorMode().preference = "dark";
 
 const useNotification = new ToastService();
@@ -54,7 +58,7 @@ async function onSubmit(event: FormSubmitEvent<Schema>) {
     if (response.success) {
         useNotification.success("Login efetuado com sucesso");
         useAuth().login(response.payload as Usuario);
-        useRouter().push("/treinos");
+        useRouter().push("/treino");
     }
 }
 </script>
