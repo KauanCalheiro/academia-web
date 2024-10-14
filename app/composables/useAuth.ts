@@ -1,26 +1,23 @@
 import type Usuario from "~~/types/Usuario";
 
 export const useAuth = () => {
-    const sessionKey = 'auth';
-    const cookie = useCookie<boolean>('authenticated')
+    const cookie = useCookie<any>('auth');
 
     const login = (user: Usuario) => {
         const encryptedUser = btoa(JSON.stringify(user));
-        sessionStorage.setItem(sessionKey, encryptedUser);
-        cookie.value = true
+        cookie.value = encryptedUser
     }
 
     const logout = () => {
-        sessionStorage.removeItem(sessionKey);
         cookie.value = false
     }
 
-    const user = () => {
-        const encryptedUser = sessionStorage.getItem(sessionKey);
+    const user = (): Usuario => {
+        const encryptedUser = cookie.value
         if (encryptedUser) {
             return JSON.parse(atob(encryptedUser)) as Usuario;
         }
-        return null;
+        return {} as Usuario;
     }
 
     const isAuthenticated = () => {
