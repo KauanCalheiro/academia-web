@@ -1,5 +1,6 @@
 <template>
     <UContainer class="w-full h-screen">
+        <BaseHeader />
         <slot></slot>
     </UContainer>
 </template>

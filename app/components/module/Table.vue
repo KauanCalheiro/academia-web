@@ -30,7 +30,7 @@ const direction = computed(() => {
 });
 
 const { data, status, error, refresh, clear, execute } = useLazyFetch<
-    ZenithApiResponse<Modulo>
+    ZenithApiResponse<Modulo[]>
 >("/api/module", {
     params: {
         offset: 0,
@@ -62,7 +62,7 @@ defineExpose({
     <BaseTable
         title="Módulos"
         :columns="columns"
-        :rows="(data?.payload as Modulo[]) ?? []"
+        :rows="data?.payload ?? []"
         :status="status"
         :error="error?.message"
         :use-actions="true"
