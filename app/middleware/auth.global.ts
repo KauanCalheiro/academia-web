@@ -1,10 +1,11 @@
 import { type RouteLocationNormalizedGeneric } from 'vue-router';
+import { useAuth } from '~/composables/useAuth';
 
 const loginPage = 'login'
 
 const pagesThatDontNeedAuth = ['pagina-captura', loginPage]
 
-const pageToRedirectIfAlreadyAuthenticated = '/treinos'
+const pageToRedirectIfAlreadyAuthenticated = '/treino'
 const pageToRedirectIfNotAuthenticated = `/${loginPage}`
 
 export default defineNuxtRouteMiddleware((to: RouteLocationNormalizedGeneric, from: RouteLocationNormalizedGeneric) => {
