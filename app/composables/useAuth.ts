@@ -1,7 +1,11 @@
 import type Usuario from "~~/types/Usuario";
 
 export const useAuth = () => {
-    const cookie = useCookie<any>('auth');
+    const cookieLifeTime = 4 * 60 * 60 * 1000;
+
+    const cookie = useCookie<any>('auth', {
+        expires: new Date(Date.now() + cookieLifeTime)
+    });
 
     const login = (user: Usuario) => {
         const encryptedUser = btoa(JSON.stringify(user));
