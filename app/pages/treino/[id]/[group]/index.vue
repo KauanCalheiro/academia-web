@@ -1,5 +1,11 @@
 <template>
-    {{ data }}
+    <div class="flex flex-row gap-12 md:gap-8 flex-wrap justify-center">
+        <CardExercicio
+            v-for="exercicio in data?.payload"
+            :key="((exercicio as unknown) as KeyType) "
+            :exercicioTreino="exercicio"
+        />
+    </div>
 </template>
 
 <script setup lang="ts">
@@ -19,4 +25,6 @@ const { data, error, status } = await useLazyFetch<
 >(`/api/workout/${id}/${group}`, {
     method: "GET",
 });
+
+data.value?.payload;
 </script>
