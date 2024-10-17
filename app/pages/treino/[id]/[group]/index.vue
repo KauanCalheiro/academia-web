@@ -1,5 +1,5 @@
 <template>
-    <div class="flex flex-row gap-12 md:gap-8 flex-wrap justify-center">
+    <div class="flex flex-row gap-12 md:gap-8 flex-wrap justify-center pb-14">
         <CardExercicio
             v-for="exercicio in data?.payload"
             :key="((exercicio as unknown) as KeyType) "
