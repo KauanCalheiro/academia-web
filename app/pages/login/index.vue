@@ -11,6 +11,7 @@ definePageMeta({
 useColorMode().preference = "dark";
 
 const useNotification = new ToastService();
+const waitingLogin = ref(false);
 
 const schema = z.object({
     id: z
@@ -47,6 +48,8 @@ const state = reactive<{
 });
 
 async function onSubmit(event: FormSubmitEvent<Schema>) {
+    waitingLogin.value = true;
+
     const response = await $fetch("/api/login", {
         method: "POST",
         body: JSON.stringify(event.data),
@@ -54,6 +57,8 @@ async function onSubmit(event: FormSubmitEvent<Schema>) {
             useNotification.error(error.response._data.message);
         },
     });
+
+    waitingLogin.value = false;
 
     if (response.success) {
         useNotification.success("Login efetuado com sucesso");
@@ -95,7 +100,12 @@ async function onSubmit(event: FormSubmitEvent<Schema>) {
                         <UButton size="md" color="white" type="button">
                             Cadastrar
                         </UButton>
-                        <UButton size="md" color="lime" type="submit">
+                        <UButton
+                            size="md"
+                            color="lime"
+                            type="submit"
+                            :loading="waitingLogin"
+                        >
                             Entrar
                         </UButton>
                     </div>
