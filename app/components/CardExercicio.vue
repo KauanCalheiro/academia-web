@@ -26,20 +26,13 @@ const { exercicioTreino } = defineProps<{
                 {{ exercicioTreino.exercicio.nome.toUpperCase() }}
             </BaseSubtitle>
         </template>
-        <div
-            class="flex flex-col items-center justify-center h-full p-1 bg-gradient-to-br from-gray-200 to-gray-300 rounded-lg"
-        >
-            <img
-                :src="`https://www.academiazenith.com.br/zntSystem/${exercicioTreino.exercicio.video}`"
-                alt="video"
-                class="mix-blend-multiply w-[200px] rounded-lg"
-            />
-        </div>
+        <GifExercicio :gifPath="exercicioTreino.exercicio.video" />
         <template #footer>
             <div class="flex flex-row w-[100%]">
                 <UButton
                     color="lime"
                     class="w-[100%] flex flex-row justify-center"
+                    :to="`/treino/${exercicioTreino.ref_treino}/${exercicioTreino.grupo}/${exercicioTreino.ref_exercicio}`"
                 >
                     Detalhes
                 </UButton>
