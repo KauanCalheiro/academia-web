@@ -1,9 +1,11 @@
 FROM node:22.7.0
 
-WORKDIR /var/www/html
+WORKDIR /app
 
 COPY . .
 
+RUN chmod -R 777 /app
+
 RUN npm install -g pnpm
 
-ENTRYPOINT [ "/var/www/html/afterbuild.sh" ]
+ENTRYPOINT [ "/app/afterbuild.sh" ]
