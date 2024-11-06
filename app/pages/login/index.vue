@@ -93,9 +93,7 @@ async function onSubmit(event: FormSubmitEvent<Schema>) {
 
                 <template #footer>
                     <div class="flex justify-between">
-                        <UButton size="md" color="white" type="button">
-                            Cadastrar
-                        </UButton>
+                        <div></div>
                         <UButton
                             size="md"
                             color="lime"
