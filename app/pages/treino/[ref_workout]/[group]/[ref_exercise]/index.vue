@@ -6,26 +6,26 @@
             <UCard>
                 <table>
                     <tbody>
-                        <tr>
+                        <tr v-if="data?.payload[0]?.num_series">
                             <td class="px-4 py-2">Series:</td>
                             <td>
                                 {{ data?.payload[0]?.num_series }}
                             </td>
                         </tr>
-                        <tr>
+                        <tr v-if="data?.payload[0]?.num_repeticoes">
                             <td class="px-4 py-2">Repetições:</td>
                             <td>
                                 {{ data?.payload[0]?.num_repeticoes }}
                             </td>
                         </tr>
-                        <tr>
+                        <tr v-if="data?.payload[0]?.carga">
                             <td class="px-4 py-2">Carga:</td>
                             <td>
                                 {{ data?.payload[0]?.carga }}
                             </td>
                         </tr>
-                        <tr>
-                            <td class="px-4 py-2">Obs:</td>
+                        <tr v-if="data?.payload[0]?.observacao">
+                            <td class="px-4 py-2">Instruções:</td>
                             <td>
                                 {{ data?.payload[0]?.observacao }}
                             </td>
