@@ -1,7 +1,7 @@
 #!/bin/bash
 
+chmod --recursive 777 .
+
 pnpm install
 
-pnpm run build
-
-node .output/server/index.mjs
+pnpm run dev
