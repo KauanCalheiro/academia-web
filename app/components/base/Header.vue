@@ -9,6 +9,7 @@ function onClickLogo() {
 <template>
     <div class="flex flex-row p-4 w-full justify-between items-center mb-4">
         <BaseZenithLogo @click="onClickLogo" class="hover:cursor-pointer" />
-        <BaseSideMenu />
+        <!-- <BaseSideMenu /> -->
+        <BaseButtonLogout />
     </div>
 </template>
