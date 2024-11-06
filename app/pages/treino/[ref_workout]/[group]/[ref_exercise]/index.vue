@@ -37,6 +37,10 @@
             <GifExercicio
                 :gifPath="(data?.payload[0]?.exercicio.video as string)"
             />
+
+            <div>
+                <BaseButtonReturn />
+            </div>
         </div>
     </UCard>
 </template>
