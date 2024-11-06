@@ -1,6 +1,4 @@
-// export const ZENITH_API_BASE_ENDPOINT = 'http://zenith-api:80/api';
-export const ZENITH_API_BASE_ENDPOINT = 'http://localhost:8000/api';
-
+export const ZENITH_API_BASE_ENDPOINT = 'http://zenith-api:80/api';
 
 export const LOGIN_ENDPOINT = `${ZENITH_API_BASE_ENDPOINT}/login`;
 export const LOGOUT_ENDPOINT = `${ZENITH_API_BASE_ENDPOINT}/logout`;
