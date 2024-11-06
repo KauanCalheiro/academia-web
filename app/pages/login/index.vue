@@ -86,11 +86,7 @@ async function onSubmit(event: FormSubmitEvent<Schema>) {
                         <UInput v-model="state.id" />
                     </UFormGroup>
 
-                    <UFormGroup
-                        label="Password"
-                        name="password"
-                        :required="true"
-                    >
+                    <UFormGroup label="Senha" name="password" :required="true">
                         <UInput v-model="state.password" type="password" />
                     </UFormGroup>
                 </div>
