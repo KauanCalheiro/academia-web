@@ -20,7 +20,7 @@ function onClickCard(group: string, refWorkout: number) {
 <template>
     <UContainer class="pb-16">
         <div class="flex flex-col gap-6">
-            <BaseTitle :title="`Olá, ${user.nome}`" />
+            <BaseTitle :title="`Olá, ${user.name}`" />
             <BaseSubtitle subtitle="O que vamos treinar hoje?" />
 
             <div

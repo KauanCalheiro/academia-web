@@ -9,6 +9,7 @@ definePageMeta({
 const planos: Plano[] = mockedDataPlanos;
 
 const sectionPlans = ref<HTMLElement | null>(null);
+const loginTooltip = ref<HTMLElement | null>(null);
 
 const scrollToSectionPlans = () => {
     if (sectionPlans.value) {
@@ -25,6 +26,7 @@ const scrollToSectionPlans = () => {
         <section
             class="bg-[url('https://www.academiazenith.com.br/images/7078118458ec29316db719d9225ad107.jpg')] bg-center bg-no-repeat bg-cover h-full md:h-screen flex flex-col justify-between gap-11 md:gap-0"
         >
+            <!-- <div class="flex flex-row justify-between"> -->
             <div class="flex items-center justify-start">
                 <img
                     class="w-[50vw] sm:w-[45vw] md:w-[40vw] lg:w-[35vw] xl:w-[30vw] 2xl:w-[25vw] m-4 p-2 filter drop-shadow-[3px_2px_1px_#000]"
@@ -32,6 +34,24 @@ const scrollToSectionPlans = () => {
                     alt="Logo"
                 />
             </div>
+            <div
+                class="z-50 fixed top-4 right-10 md:top-7 md:right-16 lg:top-14 lg:right-[10rem] flex flex-row items-center"
+            >
+                <UTooltip
+                    text="Fazer login"
+                    ref="loginTooltip"
+                    :popper="{ placement: 'left', arrow: true, locked: false }"
+                >
+                    <UButton
+                        square
+                        class="rounded-full p-4"
+                        icon="mingcute:user-4-fill"
+                        color="lime"
+                        @click="() => useRouter().push('/login')"
+                    />
+                </UTooltip>
+            </div>
+            <!-- </div> -->
             <div>
                 <h1
                     class="main-font font-bold italic text-white text-center drop-shadow-[3px_3px_2px_#000] uppercase text-[20vw] m-0 p-8 xl:pb-24 md:text-[10vw] xl:text-[7vw]"

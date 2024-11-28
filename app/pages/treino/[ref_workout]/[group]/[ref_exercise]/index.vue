@@ -38,11 +38,42 @@
                 :gifPath="(data?.payload[0]?.exercicio.video as string)"
             />
 
+            <UButton
+                color="lime"
+                class="flex flex-row items-center justify-center"
+                @click="openModalCadastrarExercicio"
+            >
+                Registrar Exercício
+            </UButton>
+
+            <UButton
+                color="lime"
+                variant="outline"
+                class="flex flex-row items-center justify-center"
+                @click="openModalListarExercicio"
+            >
+                Ver Histórico
+            </UButton>
+
             <div>
                 <BaseButtonReturn />
             </div>
         </div>
     </UCard>
+
+    <UModal v-model="modalCadastrarExercicio" :transition="false">
+        <FormExercicio
+            :refExercicio="(ref_workout as string)"
+            @close="closeModalCadastrarExercicio"
+        />
+    </UModal>
+
+    <UModal v-model="modalListarExercicio" :transition="false">
+        <TableExercicios
+            :refExercicio="(ref_workout as string)"
+            @close="closeModalListarExercicio"
+        />
+    </UModal>
 </template>
 
 <script setup lang="ts">
@@ -61,4 +92,23 @@ const { data, error, status } = await useLazyFetch<
 >(`/api/workout/${ref_workout}/${group}/${ref_exercise}`, {
     method: "GET",
 });
+
+const modalCadastrarExercicio = ref(false);
+const modalListarExercicio = ref(false);
+
+function openModalCadastrarExercicio() {
+    modalCadastrarExercicio.value = true;
+}
+
+function closeModalCadastrarExercicio() {
+    modalCadastrarExercicio.value = false;
+}
+
+function openModalListarExercicio() {
+    modalListarExercicio.value = true;
+}
+
+function closeModalListarExercicio() {
+    modalListarExercicio.value = false;
+}
 </script>

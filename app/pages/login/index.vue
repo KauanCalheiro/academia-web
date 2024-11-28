@@ -54,7 +54,8 @@ async function onSubmit(event: FormSubmitEvent<Schema>) {
         method: "POST",
         body: JSON.stringify(event.data),
         onResponseError: (error) => {
-            useNotification.error(error.response._data.message);
+            useNotification.error(error.response._data.data.message);
+            waitingLogin.value = false;
         },
     });
 

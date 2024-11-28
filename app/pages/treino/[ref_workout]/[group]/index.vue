@@ -6,6 +6,16 @@
             :exercicioTreino="exercicio"
         />
     </div>
+    <UButton
+        v-show="showScrollButton"
+        icon="heroicons:chevron-up-16-solid"
+        size="md"
+        class="rounded-full fixed bottom-8 right-8"
+        :class="{ 'animate-bounce': showScrollButton }"
+        @click="scrollToTop"
+        color="lime"
+        variant="solid"
+    />
 </template>
 
 <script setup lang="ts">
@@ -25,4 +35,25 @@ const { data, error, status } = await useLazyFetch<
 });
 
 data.value?.payload;
+
+function scrollToTop() {
+    window.scrollTo({
+        top: 0,
+        behavior: "smooth",
+    });
+}
+
+const showScrollButton = ref(false);
+
+function handleScroll() {
+    showScrollButton.value = window.scrollY > 200;
+}
+
+onMounted(() => {
+    window.addEventListener("scroll", handleScroll);
+});
+
+onUnmounted(() => {
+    window.removeEventListener("scroll", handleScroll);
+});
 </script>
