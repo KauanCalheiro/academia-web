@@ -6,5 +6,5 @@ export default interface ExercicioHistorico {
     num_series: number
     num_repeticoes: number
     carga: number
-    observacao: string
+    // observacao: string
 }

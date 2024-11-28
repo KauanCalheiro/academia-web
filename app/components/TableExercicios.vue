@@ -1,66 +1,37 @@
 <script setup lang="ts">
 import { computed, ref } from "vue";
+import type ZenithApiResponse from "~~/types/api/ZenithApiResponse";
+import type ExercicioHistorico from "~~/types/ExercicioHistorico";
 
 const { refExercicio } = defineProps<{
     refExercicio: string;
 }>();
-const exercicios = [
-    {
-        series: 3,
-        repeticoes: 10,
-        carga: 50,
-    },
-    {
-        series: 4,
-        repeticoes: 12,
-        carga: 70,
-    },
-    {
-        series: 3,
-        repeticoes: 15,
-        carga: 15,
-    },
-    {
-        series: 3,
-        repeticoes: 8,
-        carga: 60,
-    },
-    {
-        series: 4,
-        repeticoes: 10,
-        carga: 40,
-    },
-    {
-        series: 3,
-        repeticoes: 5,
-        carga: 100,
-    },
-    {
-        series: 3,
-        repeticoes: 12,
-        carga: 0,
-    },
-    {
-        series: 3,
-        repeticoes: 15,
-        carga: 0,
-    },
-    {
-        series: 4,
-        repeticoes: 20,
-        carga: 30,
-    },
-];
 
 const page = ref(1);
 const pageCount = 5;
 
-const rows = computed(() => {
-    return exercicios.slice(
-        (page.value - 1) * pageCount,
-        page.value * pageCount
-    );
+const { data, status, error, refresh, clear, execute } = useLazyFetch<
+    ZenithApiResponse<ExercicioHistorico[]>
+>("/api/exercise-history", {
+    params: {
+        offset: computed(() => (page.value - 1) * pageCount),
+        limit: computed(() => pageCount),
+        ref_exercise: refExercicio,
+        ref_person: useAuth().user().id,
+        order: "id",
+        direction: "desc",
+    },
+    watch: [page],
 });
+
+const columns = [
+    { key: "nome", label: "Nome do Exercício" },
+    { key: "series", label: "Séries" },
+    { key: "repeticoes", label: "Repetições" },
+    { key: "carga", label: "Carga" },
+];
+
+const rows = computed(() => data?.value?.payload || []);
 </script>
 
 <template>
@@ -78,13 +49,7 @@ const rows = computed(() => {
             </div>
         </template>
 
-        <UTable :rows="rows" class="px-4">
-            <template #id-header> ID </template>
-            <template #nome-header> Nome do Exercício </template>
-            <template #series-header> Séries </template>
-            <template #repeticoes-header> Repetições </template>
-            <template #carga-header> Carga </template>
-
+        <UTable :rows="rows" :columns="columns" class="px-4">
             <template #carga-data="{ row }"> {{ row.carga }} Kg </template>
         </UTable>
 
@@ -93,7 +58,7 @@ const rows = computed(() => {
                 <UPagination
                     v-model="page"
                     :page-count="pageCount"
-                    :total="exercicios.length"
+                    :total="data?.count || 0"
                 />
             </div>
         </template>
