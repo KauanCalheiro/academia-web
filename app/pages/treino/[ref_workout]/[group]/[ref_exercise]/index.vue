@@ -63,14 +63,14 @@
 
     <UModal v-model="modalCadastrarExercicio" :transition="false">
         <FormExercicio
-            :refExercicio="(ref_workout as string)"
+            :exercicio="(data?.payload[0] as ExercicioTreino)"
             @close="closeModalCadastrarExercicio"
         />
     </UModal>
 
     <UModal v-model="modalListarExercicio" :transition="false">
         <TableExercicios
-            :refExercicio="(ref_workout as string)"
+            :exercicio="(data?.payload[0] as ExercicioTreino)"
             @close="closeModalListarExercicio"
         />
     </UModal>

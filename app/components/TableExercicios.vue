@@ -2,9 +2,10 @@
 import { computed, ref } from "vue";
 import type ZenithApiResponse from "~~/types/api/ZenithApiResponse";
 import type ExercicioHistorico from "~~/types/ExercicioHistorico";
+import type ExercicioTreino from "~~/types/ExercicioTreino";
 
-const { refExercicio } = defineProps<{
-    refExercicio: string;
+const { exercicio } = defineProps<{
+    exercicio: ExercicioTreino;
 }>();
 
 const page = ref(1);
@@ -16,8 +17,9 @@ const { data, status, error, refresh, clear, execute } = useLazyFetch<
     params: {
         offset: computed(() => (page.value - 1) * pageCount),
         limit: computed(() => pageCount),
-        ref_exercise: refExercicio,
-        ref_person: useAuth().user().id,
+        ref_exercicio: exercicio.ref_exercicio,
+        ref_pessoa: useAuth().user().id,
+        method: "loadAll",
         order: "id",
         direction: "desc",
     },
@@ -25,9 +27,8 @@ const { data, status, error, refresh, clear, execute } = useLazyFetch<
 });
 
 const columns = [
-    { key: "nome", label: "Nome do Exercício" },
-    { key: "series", label: "Séries" },
-    { key: "repeticoes", label: "Repetições" },
+    { key: "num_series", label: "Séries" },
+    { key: "num_repeticoes", label: "Repetições" },
     { key: "carga", label: "Carga" },
 ];
 

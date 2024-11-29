@@ -3,9 +3,10 @@ import type { FormSubmitEvent } from "#ui/types";
 import { reactive, ref } from "vue";
 import { z } from "zod";
 import ToastService from "~/services/ToastService";
+import type ExercicioTreino from "~~/types/ExercicioTreino";
 
-const { refExercicio } = defineProps<{
-    refExercicio: string;
+const { exercicio } = defineProps<{
+    exercicio: ExercicioTreino;
 }>();
 
 const emit = defineEmits(["close"]);
@@ -37,21 +38,16 @@ const schema = z.object({
             message: "Carga deve ser um número",
         })
         .min(0, { message: "Carga deve ser no mínimo 0" }),
-    // observacao: z
-    //     .string()
-    //     .trim()
-    //     .max(255, { message: "Observação pode ter no máximo 255 caracteres" })
-    //     .optional(),
 });
 
 type Schema = z.output<typeof schema>;
 
 const state = reactive<Schema>({
-    ref_exercicio: Number(refExercicio),
+    ref_exercicio: Number(exercicio.ref_exercicio),
     ref_pessoa: refPessoa,
-    num_series: null as unknown as number,
-    num_repeticoes: null as unknown as number,
-    carga: null as unknown as number,
+    num_series: Number(exercicio.num_series),
+    num_repeticoes: Number(exercicio.num_repeticoes),
+    carga: Number(exercicio.carga),
     // observacao: "",
 });
 
@@ -60,21 +56,17 @@ async function onSubmit(event: FormSubmitEvent<Schema>) {
     waitingSubmission.value = true;
 
     try {
-        useNotification.success("Histórico de exercício salvo com sucesso!");
-        // const response = await $fetch("/api/exercicio-historico", {
-        //     method: "POST",
-        //     body: JSON.stringify(event.data),
-        //     onResponseError: (error) => {
-        //         useNotification.error(error.response._data.data.message);
-        //         waitingSubmission.value = false;
-        //     },
-        // });
-        // if (response.success) {
-        //     useNotification.success(
-        //         "Histórico de exercício salvo com sucesso!"
-        //     );
-        //     // Limpe ou redefina o estado, se necessário
-        // }
+        const response = await $fetch("/api/exercise-history", {
+            method: "POST",
+            body: JSON.stringify(event.data),
+        });
+        if (response.success) {
+            useNotification.success(
+                "Histórico de exercício salvo com sucesso!"
+            );
+        } else {
+            throw new Error("Erro ao salvar histórico de exercício");
+        }
     } catch (error) {
         useNotification.error("Erro ao salvar histórico de exercício");
     } finally {
