@@ -33,7 +33,7 @@ const route = useRoute();
 const ref_workout = route.params.ref_workout;
 const group = route.params.group;
 
-const { data } = await useLazyFetch<ZenithApiResponse<ExercicioTreino[]>>(
+const { data } = await useFetch<ZenithApiResponse<ExercicioTreino[]>>(
     `/api/workout/${ref_workout}/${group}`,
     {
         method: "GET",

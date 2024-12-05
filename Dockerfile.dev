@@ -6,4 +6,4 @@ COPY . .
 
 RUN npm install -g pnpm
 
-ENTRYPOINT [ "/app/afterbuild.sh" ]
+ENTRYPOINT [ "/app/afterbuild-dev.sh" ]

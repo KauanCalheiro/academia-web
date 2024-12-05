@@ -10,7 +10,6 @@ const { data, error, status } = await useLazyFetch<
 });
 
 function onClickCard(group: string, refWorkout: number) {
-    console.log(group, refWorkout);
     useRouter().push({
         path: `/treino/${refWorkout}/${group}`,
     });
