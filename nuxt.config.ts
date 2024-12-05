@@ -4,6 +4,7 @@ export default defineNuxtConfig({
 
     modules: [
         "@nuxt/ui",
+        '@formkit/auto-animate/nuxt',
     ],
 
     css: [

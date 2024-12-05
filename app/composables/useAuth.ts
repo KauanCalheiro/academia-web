@@ -28,10 +28,34 @@ export const useAuth = () => {
         return cookie.value
     }
 
+    const addDoneExercise = (exerciseId: number) => {
+        const currentUser = user();
+        if (currentUser) {
+            if (!currentUser.doneExercises) {
+                currentUser.doneExercises = [];
+            }
+            currentUser.doneExercises.push(exerciseId);
+            login(currentUser);
+        }
+    }
+
+    const removeDoneExercise = (exerciseId: number) => {
+        const currentUser = user();
+        if (currentUser) {
+            if (!currentUser.doneExercises) {
+                currentUser.doneExercises = [];
+            }
+            currentUser.doneExercises = currentUser.doneExercises.filter((id: number) => id !== exerciseId);
+            login(currentUser);
+        }
+    }
+
     return {
         login,
         logout,
         user,
-        isAuthenticated
+        isAuthenticated,
+        addDoneExercise,
+        removeDoneExercise
     }
 }

@@ -1,9 +1,14 @@
 <template>
-    <div class="flex flex-row gap-12 md:gap-8 flex-wrap justify-center pb-14">
+    <div
+        v-auto-animate
+        class="flex flex-row gap-12 md:gap-8 flex-wrap justify-center pb-14"
+    >
         <CardExercicio
-            v-for="exercicio in data?.payload"
+            v-for="exercicio in exerciseArray"
             :key="((exercicio as unknown) as KeyType) "
             :exercicioTreino="exercicio"
+            @done="doneExercise"
+            @undone="undoneExercise"
         />
     </div>
     <UButton
@@ -28,13 +33,18 @@ const route = useRoute();
 const ref_workout = route.params.ref_workout;
 const group = route.params.group;
 
-const { data, error, status } = await useLazyFetch<
-    ZenithApiResponse<ExercicioTreino[]>
->(`/api/workout/${ref_workout}/${group}`, {
-    method: "GET",
-});
+const { data } = await useLazyFetch<ZenithApiResponse<ExercicioTreino[]>>(
+    `/api/workout/${ref_workout}/${group}`,
+    {
+        method: "GET",
+    }
+);
 
-data.value?.payload;
+const exerciseArray = ref<ExercicioTreino[]>(
+    data?.value?.payload as ExercicioTreino[]
+);
+
+const doneExercises = ref<number[]>(useAuth().user()?.doneExercises || []);
 
 function scrollToTop() {
     window.scrollTo({
@@ -48,6 +58,33 @@ const showScrollButton = ref(false);
 function handleScroll() {
     showScrollButton.value = window.scrollY > 200;
 }
+
+function doneExercise(ref_exercicio: number) {
+    if (!doneExercises.value.includes(ref_exercicio)) {
+        doneExercises.value.push(ref_exercicio);
+        orderArrayOnMount();
+    }
+}
+
+function undoneExercise(ref_exercicio: number) {
+    const index = doneExercises.value.indexOf(ref_exercicio);
+    if (index > -1) {
+        doneExercises.value.splice(index, 1);
+        orderArrayOnMount();
+    }
+}
+
+function orderArrayOnMount() {
+    exerciseArray.value.sort((a, b) => {
+        const aDone = doneExercises.value.includes(a.ref_exercicio);
+        const bDone = doneExercises.value.includes(b.ref_exercicio);
+        if (aDone && !bDone) return 1;
+        if (!aDone && bDone) return -1;
+        return 0;
+    });
+}
+
+orderArrayOnMount();
 
 onMounted(() => {
     window.addEventListener("scroll", handleScroll);
